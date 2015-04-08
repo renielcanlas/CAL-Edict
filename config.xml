@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+    <widget xmlns   = "http://www.w3.org/ns/widgets"
+        xmlns:gap   = "http://phonegap.com/ns/1.0"
+        id          = "com.CAL.CALedICT"
+        versionCode = "10" 
+        version     = "1.0.0" >
+
+    <!-- versionCode is optional and Android only -->
+
+    <name>CALedICT</name>
+
+    <description>
+        Mobile version of CALedICT Books
+    </description>
+
+    <author href="http://www.facebook.com/renielcanlas" email="raniellecanlas18@gmail.com">
+        Ranielle Canlas
+    </author>
+    <icon src="icon.png" />
+
+</widget>
