@@ -7,14 +7,14 @@
 
     <!-- versionCode is optional and Android only -->
 
-    <name>CALedICT</name>
+    <name>CALedICT eBooks</name>
 
     <description>
-        Mobile version of CALedICT Books
+        Mobile version of Interactive CALedICT Books
     </description>
 
-    <author href="http://www.facebook.com/renielcanlas" email="raniellecanlas18@gmail.com">
-        Ranielle Canlas
+    <author href="http://caleduc.com" email="jagoncillo@caleduc.com">
+        Computer Assisted Learning
     </author>
     <icon src="icon.png" />
 
