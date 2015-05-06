@@ -10,52 +10,114 @@
 	<script src="../../themes/jquery.js"></script>
 	<script src="../../themes/jquery.mobile-1.4.0.min.js"></script>
 	<style>
-		
+		/* Basic settings */
+		.ui-li-static.ui-collapsible {
+			padding: 0;
+		}
+		.ui-li-static.ui-collapsible > .ui-collapsible-content > .ui-listview,
+		.ui-li-static.ui-collapsible > .ui-collapsible-heading {
+			margin: 0;
+		}
+		.ui-li-static.ui-collapsible > .ui-collapsible-content {
+			padding-top: 0;
+			padding-bottom: 0;
+			padding-right: 0;
+			border-bottom-width: 0;
+		}
+		/* collapse vertical borders */
+		.ui-li-static.ui-collapsible > .ui-collapsible-content > .ui-listview > li.ui-last-child,
+		.ui-li-static.ui-collapsible.ui-collapsible-collapsed > .ui-collapsible-heading > a.ui-btn {
+			border-bottom-width: 0;
+		}
+		.ui-li-static.ui-collapsible > .ui-collapsible-content > .ui-listview > li.ui-first-child,
+		.ui-li-static.ui-collapsible > .ui-collapsible-content > .ui-listview > li.ui-first-child > a.ui-btn,
+		.ui-li-static.ui-collapsible > .ui-collapsible-heading > a.ui-btn {
+			border-top-width: 0;
+		}
+		/* Remove right borders */
+		.ui-li-static.ui-collapsible > .ui-collapsible-heading > a.ui-btn,
+		.ui-li-static.ui-collapsible > .ui-collapsible-content > .ui-listview > .ui-li-static,
+		.ui-li-static.ui-collapsible > .ui-collapsible-content > .ui-listview > li > a.ui-btn,
+		.ui-li-static.ui-collapsible > .ui-collapsible-content {
+			border-right-width: 0;
+		}
+		/* Remove left borders */
+		/* Here, we need class ui-listview-outer to identify the outermost listview */
+		.ui-listview-outer > .ui-li-static.ui-collapsible .ui-li-static.ui-collapsible.ui-collapsible,
+		.ui-listview-outer > .ui-li-static.ui-collapsible > .ui-collapsible-heading > a.ui-btn,
+		.ui-li-static.ui-collapsible > .ui-collapsible-content {
+			border-left-width: 0;
+		}
 	</style>
-	<script>
-		$( document ).on( "pagecreate", "#contents", function() {
-			$( document ).on( "swipeleft", "#contents", function( e ) {
-				// We check if there is no open panel on the page because otherwise
-				// a swipe to close the left panel would also open the right panel (and v.v.).
-				// We do this by checking the data that the framework stores on the page element (panel: open).
-				if ( $( ".ui-page-active" ).jqmData( "panel" ) !== "open" ) {
-					$( "#bookpanel" ).panel( "open" );
-				}
-			});
-		});
-	</script>
 </head>
 <body>
 	<div data-role="page" id="contents">
 		<div data-role="header" data-position="fixed" data-theme="e" data-fullscreen="true">
 			<h1>Book Title Here</h1>
-			 <a href="#bookpanel" class="ui-btn-right ui-btn ui-btn-a ui-btn-inline ui-mini ui-corner-all ui-btn-icon-notext ui-icon-bars"></a>
+			 <a href="#bookpanel1" class="ui-btn-right ui-btn ui-btn-a ui-btn-inline ui-mini ui-corner-all ui-btn-icon-notext ui-icon-bars"></a>
 		</div>
-		<div data-role="panel" data-position="right" data-display="push" data- id="bookpanel" data-theme="a">
+		<div data-role="panel" data-position="right" data-display="push" data- id="bookpanel1" data-theme="a">
 			<div data-role="controlgroup">
-				<a id="lessons" data-role="button" class="navpanel active">Lessons</a>
-				<a id="activities" data-role="button" class="navpanel">Activities</a>
-				<a id="handson" data-role="button" class="navpanel">Hands on</a>
-				<a href="../../index.html" data-transition="pop" data-reversed="true" data-role="button">Browse Other Books</a>
+				<a data-role="button">Lessons</a>
+				<a data-role="button">Activities</a>
+				<a data-role="button">Hands on</a>
+				<a href="../../index.html#bookselect" data-transition="pop" data-reversed="true" data-role="button">Browse Other Books</a>
 			</div>
 			<img src="bookthumb.png" width="100%" style="border:1px solid #eee; border-radius:10px;">
 		</div>
 		<div data-role="content" id="content">
-			
+			<h3>Table of Contents</h3>
+			<ul data-role="listview">
+			  <li data-role="collapsible" data-iconpos="right" data-inset="false" data-theme="e">
+				<h2>Unit 1 - Exploring ICT with Keyboarding and Mousing Skills</h2>
+				<ul data-role="listview">
+				  <li data-theme="a"><a href="#">Lesson1 - History of Computer</a></li>
+				  <li data-theme="a"><a href="#">Lesson2 - Early Communication Devices</a></li>
+				  <li data-theme="a"><a href="#">Lesson3 - Electronic Communications</a></li>
+				  <li data-theme="a"><a href="#">Lesson4 - Personal Computer Hardware</a></li>
+				  <li data-theme="a"><a href="#">Lesson5 - Keyboarding and Mousing Skills</a></li>
+				  <li data-theme="a"><a href="#">Lesson6 - Keyboarding Activities</a></li>
+				  <li data-theme="a"><a href="#">Lesson7 - Mousing Activities</a></li>
+				</ul>
+			  </li>
+			  <li data-role="collapsible" data-iconpos="right" data-inset="false" data-theme="e">
+				<h2>Unit 2 - Explore Drawing and Animation with GCompris</h2>
+				<ul data-role="listview">
+				  <li data-theme="a"><a href="#">Lesson1 - Opening the Program</a></li>
+				  <li data-theme="a"><a href="#">Lesson2 - Saving your File</a></li>
+				  <li data-theme="a"><a href="#">Lesson3 - Creating Images and Objects</a></li>
+				  <li data-theme="a"><a href="#">Lesson4 - Inserting Images or Objects</a></li>
+				  <li data-theme="a"><a href="#">Lesson5 - Editing Objects</a></li>
+				  <li data-theme="a"><a href="#">Lesson6 - Creating and Animation</a></li>
+				  <li data-theme="a"><a href="#">Lesson7 - Preview Animated Work</a></li>
+				</ul>
+			  </li>
+			  <li data-role="collapsible" data-iconpos="right" data-inset="false" data-theme="e">
+				<h2>Unit 3 - Explore Word Processing</h2>
+				<ul data-role="listview">
+				  <li data-theme="a"><a href="#">Lesson1 - Introduction to the Internet</a></li>
+				  <li data-theme="a"><a href="#">Lesson2 - Parts of MS Word</a></li>
+				  <li data-theme="a"><a href="#">Lesson3 - Font</a></li>
+				  <li data-theme="a"><a href="#">Lesson4 - Paragraph</a></li>
+				  <li data-theme="a"><a href="#">Lesson5 - Inserting Clip Art</a></li>
+				  <li data-theme="a"><a href="#">Lesson6 - Adding Shapes</a></li>
+				  <li data-theme="a"><a href="#">Lesson7 - Printing</a></li>
+				</ul>
+			  </li>
+			  <li data-role="collapsible" data-iconpos="right" data-inset="false" data-theme="e">
+				<h2>Unit 4 - Exploring Spreadsheets</h2>
+				<ul data-role="listview">
+				  <li data-theme="a"><a href="#">Lesson1 - Introduction to MS Excel 2007</a></li>
+				  <li data-theme="a"><a href="#">Lesson2 - To Create, Save and Open a Workbook</a></li>
+				  <li data-theme="a"><a href="#">Lesson3 - Entering and Formatting Text</a></li>
+				  <li data-theme="a"><a href="#">Lesson4 - Entering and Formatting Numbers</a></li>
+				  <li data-theme="a"><a href="#">Lesson5 - More Tools to Format and Edit Cells</a></li>
+				  <li data-theme="a"><a href="#">Lesson6 - Perform Mathematical Operations</a></li>
+				  <li data-theme="a"><a href="#">Lesson7 - Introduction to Charts in Excel</a></li>
+				</ul>
+			  </li>
+			</ul>
 		</div>
 	</div>
-	<script>
-		$(document).ready(function(){
-			//Set the default page
-			$("#content").load("lessons.html");
-			
-			//Open the page on navclick
-			$(".navpanel").click(function(){
-				var id=$(this).attr("id");
-				$("#content").load(id + ".html");
-				$("#bookpanel").panel("close");
-			});
-		});
-	</script>
 </body>
 </html>
